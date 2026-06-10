@@ -1,1 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIP Digital - Sustentabilidade e Economia no Campo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+    <header>
+        <div class="header-container">
+            <h1>MIP <span>Digital</span></h1>
+            <p>Manejo Integrado de Pragas & Sustentabilidade no Agronegócio</p>
+        </div>
+    </header>
+
+    <main>
+        
+        <section id="sobre-mip" aria-labelledby="titulo-sobre">
+            <h2 id="titulo-sobre">O que é o MIP?</h2>
+            <p>
+                O Manejo Integrado de Pragas (MIP) é uma abordagem estratégica recomendada pelo <strong>Sistema FAEP/SENAR-PR</strong>. 
+                Em vez de aplicar defensivos químicos por calendário, o produtor monitora a lavoura e intervém apenas quando a praga atinge o 
+                <em>Nível de Dano Econômico (NDE)</em>. Isso gera equilíbrio biológico, reduz o impacto ambiental (ESG) e traz economia real.
+            </p>
+        </section>
+
+        <section id="calculadora-mip" aria-labelledby="titulo-calculadora">
+            <h2 id="titulo-calculadora">Calculadora de Economia e Impacto</h2>
+            <p>Simule a diferença financeira e ambiental entre o manejo tradicional por calendário e as técnicas de monitoramento do MIP.</p>
+            
+            <form id="form-mip" novalidate>
+                <div class="campo-grupo">
+                    <label for="area-lavoura">Tamanho da Área da Lavoura (em Hectares):</label>
+                    <input type="number" id="area-lavoura" name="areaLavoura" placeholder="Ex: 50" required min="1">
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="custo-aplicacao">Custo Estimado por Aplicação Química (R$ por Hectare):</label>
+                    <input type="number" id="custo-aplicacao" name="custoAplicacao" placeholder="Ex: 120" required min="1">
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="tipo-cultura">Cultura Principal para Monitoramento:</label>
+                    <select id="tipo-cultura" name="tipoCultura" required>
+                        <option value="" disabled selected>Selecione a cultura...</option>
+                        <option value="soja">Soja (Foco: Ferrugem Asiática / Percevejo)</option>
+                        <option value="milho">Milho (Foco: Cigarrinha do Milho)</option>
+                        <option value="morango">Morango (Foco: Ácaro-rajado / Trips)</option>
+                    </select>
+                </div>
+
+                <button type="submit" id="btn-calcular">Simular Potencial MIP</button>
+            </form>
+
+            <div id="container-erro" class="erro-mensagem" hidden aria-live="assertive"></div>
+
+            <article id="resultado-calculo" class="resultado-box" hidden>
+                <h3>Resultados da Simulação Técnica</h3>
+                <div class="resultado-cards">
+                    <div class="card">
+                        <h4>Redução de Aplicações</h4>
+                        <p id="res-aplicacoes">-</p>
+                    </div>
+                    <div class="card">
+                        <h4>Economia Financeira Direta</h4>
+                        <p id="res-economia">-</p>
+                    </div>
+                    <div class="card">
+                        <h4>Impacto de Governança Ambiental</h4>
+                        <p id="res-impacto">-</p>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section id="alertas-comunidade" aria-labelledby="titulo-alertas">
+            <h2 id="titulo-alertas">Rede de Monitoramento e Alertas Coletivos</h2>
+            <p>Alinhado aos conceitos de redes e conexões, veja as ameaças e recomendações vigentes validadas pela assistência técnica (ATeG):</p>
+            <ul class="lista-alertas">
+                <li><strong>Alerta Fitossanitário:</strong> Atenção ao período do vazio sanitário na sua região para conter a ferrugem asiática.</li>
+                <li><strong>Manejo de Ervas:</strong> Casos reportados de resistência ao <em>Caruru</em>. Adote rotação de princípios ativos.</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2026 Concurso Agrinho - Categoria Programação. Desenvolvido de forma autoral por alunos da 2ª Série do Ensino Médio.</p>
+            <p>Referências técnicas inspiradas nos manuais de campo do Sistema FAEP/SENAR-PR.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
