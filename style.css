@@ -1,1 +1,248 @@
+/* ==========================================================================
+   1. VARIÁVEIS DO SISTEMA (:root)
+   Paleta moderna de alto contraste inspirada no Agro Sustentável (Princípios ESG)
+   ========================================================================== */
+:root {
+    /* Cores Principais */
+    --cor-primaria: #1b4d3e;       /* Verde Floresta Profundo (Representa a Lavoura e Sustentabilidade - Alta Legibilidade) */
+    --cor-secundaria: #f4a261;     /* Terracota/Laranja Suave (Destaque para botões, alertas e interações importantes) */
+    --cor-auxiliar: #2d6a4f;       /* Verde Médio (Para transições, links e detalhes visuais) */
+    
+    /* Cores de Fundo e Apoio */
+    --bg-principal: #f8f9fa;       /* Cinza Off-White Claro (Evita o cansaço visual do branco puro) */
+    --bg-card: #ffffff;            /* Branco Puro para blocos de conteúdo isolados */
+    --texto-escuro: #212529;       /* Grafite Escuro (Contraste excelente sobre fundos claros, melhor que preto puro) */
+    --texto-claro: #ffffff;        /* Branco para textos sobre fundos escuros */
+    --cor-erro: #d90429;           /* Vermelho Alerta (Para sinalização amigável de erros de validação) */
+    
+    /* Espaçamentos e Bordas */
+    --espacamento-padrao: 1rem;    /* 16px base para manter a proporção do layout */
+    --raio-borda: 8px;             /* Curvatura sutil nos cantos de cartões e inputs */
+    --sombra-suave: 0 4px 6px rgba(0, 0, 0, 0.05); /* Sombra elegante para dar profundidade */
+}
 
+/* ==========================================================================
+   2. RESET GLOBAL (*)
+   Garante consistência visual idêntica em qualquer navegador moderno
+   ========================================================================== */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-box-sizing: border-box; /* Garante que padding e border não quebrem o tamanho dos elementos */
+}
+
+/* Base da Página */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-principal);
+    color: var(--texto-escuro);
+    line-height: 1.6; /* Aumenta o espaçamento entre linhas, otimizando a leitura */
+    font-size: 16px;
+}
+
+/* ==========================================================================
+   3. ESTILIZAÇÃO COMPONENTE POR COMPONENTE (UI/UX)
+   ========================================================================== */
+
+/* Cabeçalho */
+header {
+    background-color: var(--cor-primaria);
+    color: var(--texto-claro);
+    padding: 2.5rem var(--espacamento-padrao);
+    text-align: center;
+    border-bottom: 4px solid var(--cor-secundaria);
+}
+
+header h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+header h1 span {
+    color: var(--cor-secundaria); /* Destaca a palavra 'Digital' com a cor de ação */
+}
+
+header p {
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+    opacity: 0.9;
+}
+
+/* Container Principal */
+main {
+    max-width: 800px; /* Alinhamento centralizado com largura confortável para leitura */
+    margin: 2rem auto;
+    padding: 0 var(--espacamento-padrao);
+}
+
+/* Estilo Base para as Seções */
+section {
+    background-color: var(--bg-card);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: var(--raio-borda);
+    box-shadow: var(--sombra-suave);
+}
+
+section h2 {
+    color: var(--cor-primaria);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+    padding-left: 12px;
+}
+
+/* Detalhe visual: Linha vertical ao lado dos títulos principais */
+section h2::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 4px;
+    height: 80%;
+    width: 4px;
+    background-color: var(--cor-secundaria);
+    border-radius: 2px;
+}
+
+section p {
+    margin-bottom: 1.2rem;
+    color: #4a5568; /* Cinza escuro suave para textos longos */
+}
+
+/* Formulários */
+.campo-grupo {
+    margin-bottom: 1.5rem;
+}
+
+.campo-grupo label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--cor-primaria);
+}
+
+.campo-grupo input,
+.campo-grupo select {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 2px solid #cbd5e1;
+    border-radius: var(--raio-borda);
+    background-color: #fff;
+    color: var(--texto-escuro);
+    transition: border-color 0.2s ease;
+}
+
+/* Feedback visual de foco (Melhoria de UX para navegação por teclado) */
+.campo-grupo input:focus,
+.campo-grupo select:focus {
+    outline: none;
+    border-color: var(--cor-auxiliar);
+}
+
+/* Botão Principal */
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    background-color: var(--cor-secundaria);
+    color: var(--cor-primaria); /* Alto contraste combinado com a fonte escura */
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 1rem;
+    border: none;
+    border-radius: var(--raio-borda);
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #e58e47; /* Efeito hover sutilmente mais escuro */
+}
+
+button[type="submit"]:active {
+    transform: scale(0.98); /* Feedback de clique */
+}
+
+/* Caixa de Erro Amigável (Manipulada pelo JS) */
+.erro-mensagem {
+    background-color: #ffe3e3;
+    color: var(--cor-erro);
+    border-left: 5px solid var(--cor-erro);
+    padding: 1rem;
+    margin-top: 1.5rem;
+    border-radius: var(--raio-borda);
+    font-weight: 600;
+}
+
+/* Painel de Resultados (Manipulado pelo JS) */
+.resultado-box {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 2px dashed #e2e8f0;
+}
+
+.resultado-box h3 {
+    color: var(--cor-primaria);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+/* Grid de Cards de Resultado - Organizados em bloco fluido */
+.resultado-cards {
+    display: block;
+}
+
+.card {
+    background-color: var(--bg-principal);
+    border: 1px solid #e2e8f0;
+    padding: 1.2rem;
+    border-radius: var(--raio-borda);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.card h4 {
+    font-size: 0.95rem;
+    color: #4a5568;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.4rem;
+}
+
+.card p {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--cor-primaria);
+    margin-bottom: 0;
+}
+
+/* Lista de Alertas da Comunidade */
+.lista-alertas {
+    list-style: none; /* Remove marcadores padrão estranhos */
+}
+
+.lista-alertas li {
+    background-color: #fff8f0; /* Fundo levemente aquecido para atenção */
+    border-left: 4px solid var(--cor-secundaria);
+    padding: 1rem;
+    margin-bottom: 0.8rem;
+    border-radius: 0 var(--raio-borda) var(--raio-borda) 0;
+}
+
+/* Rodapé */
+footer {
+    background-color: var(--cor-primaria);
+    color: var(--texto-claro);
+    padding: 2rem var(--espacamento-padrao);
+    text-align: center;
+    font-size: 0.9rem;
+    margin-top: 4rem;
+    border-top: 4px solid var(--cor-secundaria);
+}
+
+footer p + p {
+    margin-top: 0.5rem;
+    opacity: 0.7;
+    font-style: italic;
+}
